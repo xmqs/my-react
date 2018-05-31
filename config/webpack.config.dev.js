@@ -143,7 +143,10 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]'
+          //单独配置样式
+        //loader: 'style-loader!css-loader?modules&importLoaders=1&localIdentName=[name]__[local]__[hash:base64:5]'
+          //ant-design样式
+
       },
       /*{
           test: /\.css$/,
@@ -165,7 +168,7 @@ parser:解析器选项对象
 resource:与资源匹配的条件，可以使用正则。例子中匹配资源内部 含有app的文件 如 app.js | demoapp.js
 resourceQuery:与资源查询匹配的条件，匹配资源?后面的字段 如 app.js?userName
     use:一个数组结构用于作为程序解析器的入口路径*/
-      /*{
+      {
         // "oneOf" will traverse all following loaders until one will
         // match the requirements. When no loader matches it will fall
         // back to the "file" loader at the end of the loader list.
@@ -173,14 +176,14 @@ resourceQuery:与资源查询匹配的条件，匹配资源?后面的字段 如 
           // "url" loader works like "file" loader except that it embeds assets
           // smaller than specified limit in bytes as data URLs to avoid requests.
           // A missing `test` is equivalent to a match.
-          /!*{
+          {
             test: [/\.bmp$/, /\.gif$/, /\.jpe?g$/, /\.png$/],
             loader: require.resolve('url-loader'),
             options: {
               limit: 10000,
               name: 'static/media/[name].[hash:8].[ext]',
             },
-          },*!/
+          },
           // Process JS with Babel.
           {
             test: /\.(js|jsx|mjs)$/,
@@ -199,7 +202,7 @@ resourceQuery:与资源查询匹配的条件，匹配资源?后面的字段 如 
           // "style" loader turns CSS into JS modules that inject <style> tags.
           // In production, we use a plugin to extract that CSS to a file, but
           // in development "style" loader enables hot editing of CSS.
-          /!*{
+          {
             test: /\.css$/,
             use: [
               require.resolve('style-loader'),
@@ -230,13 +233,13 @@ resourceQuery:与资源查询匹配的条件，匹配资源?后面的字段 如 
                 },
               },
             ],
-          },*!/
+          },
           // "file" loader makes sure those assets get served by WebpackDevServer.
           // When you `import` an asset, you get its (virtual) filename.
           // In production, they would get copied to the `build` folder.
           // This loader doesn't use a "test" so it will catch all modules
           // that fall through the other loaders.
-          /!*{
+          {
             // Exclude `js` files to keep "css" loader working as it injects
             // its runtime that would otherwise processed through "file" loader.
             // Also exclude `html` and `json` extensions so they get processed
@@ -246,9 +249,9 @@ resourceQuery:与资源查询匹配的条件，匹配资源?后面的字段 如 
             options: {
               name: 'static/media/[name].[hash:8].[ext]',
             },
-          },*!/
+          },
         ],
-      },*/
+      },
       // ** STOP ** Are you adding a new loader?
       // Make sure to add the new loader(s) before the "file" loader.
     ],

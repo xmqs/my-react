@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import ReactDOM from "react-dom"
 import ComponentHeader from "./components/header"
 import ComponentFooter from "./components/footer"
 import BodyIndex from "./components/indexBody"
+
+import 'antd/dist/antd.css'
 
 class App extends Component {
     componentWillMount(){
